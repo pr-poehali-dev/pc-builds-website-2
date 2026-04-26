@@ -4,40 +4,46 @@ import Icon from "@/components/ui/icon";
 const builds = [
   {
     id: 1,
-    name: "СТАРТОВАЯ",
-    tag: "Офис / Учёба",
-    price: "35 000 ₽",
-    cpu: "AMD Ryzen 5 5600",
-    gpu: "NVIDIA GTX 1650",
-    ram: "16 ГБ DDR4",
-    storage: "512 ГБ SSD",
-    description: "Уверенная работа, офисные задачи, учёба и лёгкие игры.",
+    name: "БЮДЖЕТНЫЙ",
+    tag: "Бюджетный ценовой сегмент",
+    price: "от 40 000 ₽",
+    cpu: "AMD Ryzen 5 5600G (OEM)",
+    gpu: "Встроенная Radeon Vega 7",
+    ram: "16 ГБ (2×8 ГБ) DDR4 3200 MHz",
+    storage: "SSD M.2 512 ГБ Kingston",
+    psu: "Chieftec Proton 400W",
+    motherboard: "MSI B450M-A Pro Max 2",
+    description: "Офис, учёба, интернет и лёгкие задачи без дискретной видеокарты.",
     color: "#3b82f6",
     badge: "БЮДЖЕТ",
   },
   {
     id: 2,
-    name: "ИГРОВАЯ",
-    tag: "Игры 1080p / 1440p",
-    price: "80 000 ₽",
-    cpu: "AMD Ryzen 7 7700X",
-    gpu: "NVIDIA RTX 4070",
-    ram: "32 ГБ DDR5",
-    storage: "1 ТБ NVMe",
-    description: "Топовые настройки в современных играх, стриминг и монтаж.",
+    name: "НАРОДНЫЙ",
+    tag: "Средний ценовой сегмент",
+    price: "от 100 000 ₽",
+    cpu: "AMD Ryzen 5 5600X",
+    gpu: "NVIDIA RTX 4060 Ti 16 ГБ",
+    ram: "32 ГБ (2×16 ГБ) DDR5 5600 MHz",
+    storage: "SSD M.2 1 ТБ NVMe Gen4 Kingston",
+    psu: "Cougar STX 650W",
+    motherboard: "GIGABYTE B550M Aorus Elite",
+    description: "Народный игровой ПК: уверенные FPS в топовых играх, стриминг, монтаж.",
     color: "#2563ff",
     badge: "ХИТ",
   },
   {
     id: 3,
-    name: "ФЛАГМАН",
-    tag: "4K / Профессионал",
-    price: "160 000 ₽",
-    cpu: "Intel Core i9-14900K",
-    gpu: "NVIDIA RTX 4090",
-    ram: "64 ГБ DDR5",
-    storage: "2 ТБ NVMe",
-    description: "Максимальная мощь для 4K-игр, 3D, видеопроизводства.",
+    name: "РАБОЧИЙ",
+    tag: "Программист / Дизайнер",
+    price: "под бюджет",
+    cpu: "Intel Core i5-13500 (BOX)",
+    gpu: "Встроенная Intel UHD Graphics 770",
+    ram: "64 ГБ (2×32 ГБ) DDR4 3200 MHz",
+    storage: "1 ТБ SSD M.2 (система) + 2 ТБ SSD (проекты)",
+    psu: "500W Be Quiet / Aerocool",
+    motherboard: "ASUS Prime B760-Plus",
+    description: "Большой объём ОЗУ и хранилища для разработки, дизайна и работы с проектами.",
     color: "#6366f1",
     badge: "PRO",
   },
@@ -68,9 +74,11 @@ const faqItems = [
 
 const compareSpecs = [
   { label: "Процессор", key: "cpu" },
+  { label: "Материнская плата", key: "motherboard" },
   { label: "Видеокарта", key: "gpu" },
   { label: "Оперативная память", key: "ram" },
   { label: "Накопитель", key: "storage" },
+  { label: "Блок питания", key: "psu" },
   { label: "Цена", key: "price" },
 ];
 
@@ -170,8 +178,8 @@ const Index = () => {
         >
           {[
             { value: "3", label: "Конфигурации" },
-            { value: "12 мес", label: "Гарантия" },
-            { value: "1–2 дня", label: "Срок сборки" },
+            { value: "40K+", label: "От 40 000 ₽" },
+            { value: "100%", label: "Реальные цены" },
           ].map((s) => (
             <div key={s.label} className="bg-[#111] p-6 text-center">
               <div className="font-display text-3xl font-bold text-[#3b82f6]">
@@ -224,17 +232,19 @@ const Index = () => {
               <div className="space-y-3 mb-8 flex-1">
                 {[
                   { icon: "Cpu", label: b.cpu },
+                  { icon: "CircuitBoard", label: b.motherboard },
                   { icon: "Monitor", label: b.gpu },
                   { icon: "MemoryStick", label: b.ram },
                   { icon: "HardDrive", label: b.storage },
+                  { icon: "Zap", label: b.psu },
                 ].map((spec) => (
-                  <div key={spec.icon} className="flex items-center gap-3">
+                  <div key={spec.icon} className="flex items-start gap-3">
                     <Icon
                       name={spec.icon}
                       size={14}
-                      className="text-white/25 flex-shrink-0"
+                      className="text-white/25 flex-shrink-0 mt-0.5"
                     />
-                    <span className="font-body text-sm text-white/60">
+                    <span className="font-body text-sm text-white/60 leading-snug">
                       {spec.label}
                     </span>
                   </div>
