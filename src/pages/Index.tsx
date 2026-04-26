@@ -36,7 +36,7 @@ const builds = [
     id: 3,
     name: "РАБОЧИЙ",
     tag: "Программист / Дизайнер",
-    price: "под бюджет",
+    price: "от 140 000 ₽",
     cpu: "Intel Core i5-13500 (BOX)",
     gpu: "Встроенная Intel UHD Graphics 770",
     ram: "64 ГБ (2×32 ГБ) DDR4 3200 MHz",
@@ -251,16 +251,13 @@ const Index = () => {
                 ))}
               </div>
 
-              <div className="pt-6 border-t border-white/5 flex items-center justify-between">
+              <div className="pt-6 border-t border-white/5">
                 <span
                   className="font-display text-2xl font-bold"
                   style={{ color: b.color }}
                 >
                   {b.price}
                 </span>
-                <button className="px-4 py-2 text-xs font-display tracking-wider text-white/50 border border-white/10 hover:border-[#3b82f6]/50 hover:text-[#3b82f6] transition-all">
-                  ПОДРОБНЕЕ
-                </button>
               </div>
             </div>
           ))}
@@ -321,31 +318,7 @@ const Index = () => {
           </table>
         </div>
 
-        <div className="mt-8 grid grid-cols-3 gap-px bg-white/5">
-          {builds.map((b) => (
-            <div key={b.id} className="bg-[#0a0a0a] p-6 text-center">
-              <div className="font-display text-sm tracking-widest text-white/30 mb-2 uppercase">
-                {b.name}
-              </div>
-              <div
-                className="font-display text-2xl font-bold mb-4"
-                style={{ color: b.color }}
-              >
-                {b.price}
-              </div>
-              <button
-                className="w-full py-2 text-xs font-display tracking-widest transition-all hover:opacity-80"
-                style={{
-                  backgroundColor: `${b.color}15`,
-                  color: b.color,
-                  border: `1px solid ${b.color}30`,
-                }}
-              >
-                ВЫБРАТЬ
-              </button>
-            </div>
-          ))}
-        </div>
+
       </section>
 
       {/* FAQ */}
